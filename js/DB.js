@@ -18,13 +18,13 @@ function Person(id, username, password,) {
   }// id generator
 
 
-function getUserObject(name,id, password) {
-    return {
-        name,
-        id,
-        password
-    }
-}
+// function getUserObject(name,id, password) {
+//     return {
+//         name,
+//         id,
+//         password
+//     }
+// }
 
 function addPersonToDB (personObj){
     let db = JSON.parse(localStorage.getItem("db"));
@@ -51,9 +51,11 @@ function verifyPassword(username, password){
     for( let i = 0; i < db.usersArray.length; i++){
         if (db.usersArray[i].username === username &&  db.usersArray[i].password === password){
         passwordCongruence = true
+        console.log( "password correct");
         }
     }
     localStorage.setItem("db", JSON.stringify(db));
+    
     return passwordCongruence
 }
 

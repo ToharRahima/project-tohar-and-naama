@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/application.css">
 </head>
 <body>
+    <div id="templatesContainer">
     <template>
 <h1>login</h1>
 <form>
@@ -17,6 +18,8 @@
 <label for="password">password:</label><br>
 <input type="text" id="password" name="username"><br>   
 <input type="submit" id="loginsubmitbutton">
+<p id="loginererrorMessage"></p>
+<p id="goToRegister"> click here to register </p>
 </form>
     </template>
     <template>
@@ -29,7 +32,7 @@
     <label for="confirmpassword">password:</label><br>
     <input type="text" id="confirmpassword" name="confirmpassword"><br>   
     <input type="submit" id="registersubmitbutton">
-    <p id="errorMessage"></p>
+    <p id="registererrorMessage"></p>
   
 
     </form>
@@ -37,10 +40,14 @@
     <template>
 <h1>application- to do list</h1>
     </template>
-
+</div>
+    <script src="./js/FAJAX.js"></script>
+    <script src="./js/network.js"></script>
+    <script src="./js/server.js"></script>
     <script src="./js/DB.js"></script>
     <script src="./js/application.js"></script>
     <script src="./js/login.js"></script>
-    <script src="./js/reginster.js"></script>
+    <script src="./js/register.js"></script>
+
 </body>
 </html>
