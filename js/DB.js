@@ -14,7 +14,17 @@ function Person(id, username, password,) {
     this.username = username
     this.password = password
     this.toDoList = [ ]
+    this.tdid = 0 
   }// id generator
+
+
+function getUserObject(name,id, password) {
+    return {
+        name,
+        id,
+        password
+    }
+}
 
 function addPersonToDB (personObj){
     let db = JSON.parse(localStorage.getItem("db"));
@@ -22,11 +32,33 @@ function addPersonToDB (personObj){
     localStorage.setItem("db", JSON.stringify(db));
 }
 
-function checkIfUserExists(username){}
+function checkIfUserExists(username){
+    let db = JSON.parse(localStorage.getItem("db"));
+    let userExists = false
+    for( let i = 0; i < db.usersArray.length; i++){
+        if (db.usersArray[i].username === username ){
+            userExists = true
+            break
+        }
+    }
+    localStorage.setItem("db", JSON.stringify(db));
+    return userExists
+}
 
-function verifyPassword(username, password){}
+function verifyPassword(username, password){
+    let db = JSON.parse(localStorage.getItem("db"));
+    let passwordCongruence = false
+    for( let i = 0; i < db.usersArray.length; i++){
+        if (db.usersArray[i].username === username &&  db.usersArray[i].password === password){
+        passwordCongruence = true
+        }
+    }
+    localStorage.setItem("db", JSON.stringify(db));
+    return passwordCongruence
+}
 
 function createToDoObj (task){
+    this.id
     this.task = task
 }
 
@@ -34,17 +66,23 @@ function addToDoItem( id, task){
     let db = JSON.parse(localStorage.getItem("db"));
     for( let i = 0; i < db.usersArray.length; i++){
         if (db.usersArray[i].id === id ){
+
             db.usersArray[i].toDoList.push(task)
-            localStorage.setItem("db", JSON.stringify(db));
             break
         }
     }
+    localStorage.setItem("db", JSON.stringify(db));
 
 }
 
 function removeItemFromToDo(){}
 
-function showAllToDoItems(){}
+function showAllToDoArray(id){
+    let db = JSON.parse(localStorage.getItem("db"));
+    let allToDoArray = db.toDoList
+    localStorage.setItem("db", JSON.stringify(db));
+    return allToDoArray
+}
 
 
 
