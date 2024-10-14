@@ -9,7 +9,38 @@
     <link rel="stylesheet" href="./css/application.css">
 </head>
 <body>
+    <template>
+<h1>login</h1>
+<form>
+<label for="username">user name:</label><br>
+<input type="text" id="username" name="username"><br>   
+<label for="password">password:</label><br>
+<input type="text" id="password" name="username"><br>   
+<input type="submit" id="loginsubmitbutton">
+</form>
+    </template>
+    <template>
+<h1>register</h1>
+<form id="registerForm">
+    <label for="newusername">user name:</label><br>
+    <input type="text" id="newusername" name="newusername"><br>   
+    <label for="newpassword">password:</label><br>
+    <input type="text" id="newpassword" name="newpassword"><br> 
+    <label for="confirmpassword">password:</label><br>
+    <input type="text" id="confirmpassword" name="confirmpassword"><br>   
+    <input type="submit" id="registersubmitbutton">
+    <p id="errorMessage"></p>
+  
+
+    </form>
+    </template>
+    <template>
+<h1>application</h1>
+    </template>
 
     <script src="./js/DB.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/reginster.js"></script>
 </body>
 </html>

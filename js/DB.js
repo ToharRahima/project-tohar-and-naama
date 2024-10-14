@@ -9,7 +9,7 @@ const localStorageObj = {
 localStorage.setItem("db", JSON.stringify(localStorageObj));
 
 //create a person
-function createPersonObj(id, username, password,) {
+function Person(id, username, password,) {
     this.id = id
     this.username = username
     this.password = password
@@ -53,7 +53,7 @@ function showAllToDoItems(){}
 
 // dave is test
 //we have created a new person
-let dave = new createPersonObj(1, "Dave", 1234);
+let dave = new Person(1, "Dave", 1234);
 //the object with the array of all the people 
 
 addPersonToDB(dave);
