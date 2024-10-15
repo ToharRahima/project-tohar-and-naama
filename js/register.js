@@ -24,15 +24,14 @@ function userValueToPerson() {
                     password:passwordValue}
         console.log(person);
         //SEND PERSON TO NETWORK
-        const fajaxobj = new FAJAX()
+        const registerFajax = new FAJAX()
 
-        fajaxobj.open("POST", "addUser/api/people", person);
-        fajaxobj.onload = function (res) {
+        registerFajax.open("POST", "addUser/api/people", person);
+        registerFajax.onload = function (res) {
             localStorage.setItem("currentId", res);
             loadPage(mainPageTemplate);
         };
-        fajaxobj.send();
-        console.log('fajaxobj: ', fajaxobj);
+        registerFajax.send();
     }
 }
 

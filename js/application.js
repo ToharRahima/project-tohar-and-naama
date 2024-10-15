@@ -11,14 +11,13 @@ logOutButton.addEventListener("click", () => {
 
 
 function showTasks () {
-    console.log("in")
-    xml = new FAJAX();
-    xml.open("get", "ourServer/api/getToDo", id)
-    xml.onload = function (toDoList){
+    showTasksFajax= new FAJAX();
+    showTasksFajax.open("get", "ourServer/api/getToDo", id)
+    showTasksFajax.onload = function (toDoList){
         if(!toDoList) return;
       document.getElementById("TDlist").innerHTML = "- " + toDoList.join(" <br/> - ")
     }
-   xml.send();
+    showTasksFajax.send();
   }
 
   showTasks();
