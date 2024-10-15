@@ -1,4 +1,5 @@
 function server(package){
+    console.log('package: ', package);
 
     method = package.method
     url = package.url

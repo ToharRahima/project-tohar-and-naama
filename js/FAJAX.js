@@ -1,18 +1,15 @@
 class FAJAX {
+  constructor(){}
     open(method, url, content){
         this.method = method;
         this.url = url;
         this.content = content
     }
     send (){
-        
         const res = network(this);
         this.onload(res)
-
     }
   }
-
-//
 
   /*
 
@@ -22,7 +19,11 @@ class FAJAX {
 
 
 const X = new FAJAX()
-X.open(method (get, post, delete), url
+X.open("get", "server/api/...", {nem;"...", password:"..."})
+{
+method:get
+
+}
 X.onload = function
 x.send()
 */
