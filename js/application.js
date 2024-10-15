@@ -18,7 +18,7 @@ function showTasks () {
     xml.open("get", "ourServer/api/getToDo", id)
     xml.onload = function (toDoList){
         if(!toDoList) return;
-      document.getElementById("TDlist").innerHTML = toDoList.join(", ")
+      document.getElementById("TDlist").innerHTML = "- " + toDoList.join(" <br/> - ")
     }
    xml.send();
   }
@@ -36,7 +36,7 @@ function addtask(){
         fajaxtodoobj.open("POST","addToDo/api/ToDoList",{id, task});
         fajaxtodoobj.onload = function(toDoList){
             if(!toDoList) return;
-            document.getElementById("TDlist").innerHTML = toDoList.join(", ")
+            document.getElementById("TDlist").innerHTML = "- " + toDoList.join(" <br/> - ")
             }
          fajaxtodoobj.send();    
     }else{

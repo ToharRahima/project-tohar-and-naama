@@ -111,8 +111,7 @@ function showAllToDoArray(id) {
     for (let i = 0; i < db.usersArray.length; i++) {
         if (db.usersArray[i].id.toString() === id.toString()) {
             console.log("hello from retrieval function");
-            allToDo = db.usersArray[i].toDoList;
-            return allToDo
+            return db.usersArray[i].toDoList;
         }
     }
 
