@@ -8,7 +8,7 @@ function server(package){
     }
     if(url==="addUser/api/people"){
         addPersonToDB (content);
-        package.onload();
+        return true;
     }
 }
 

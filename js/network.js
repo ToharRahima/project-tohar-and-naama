@@ -1,3 +1,3 @@
 function network(data){
-    server(data)
+    return server(data)
 }
