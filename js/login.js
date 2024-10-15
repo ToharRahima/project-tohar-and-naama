@@ -41,9 +41,6 @@ function processPassword(event){
       console.log("came back positive", result);
       if (result){
         loadPage(mainPageTemplate);
-        console.log(" whooooooo");
-        // document.getElementById("templatesContainer").innerHTML="";
-        //  showAppContent();
       } else{
         document.getElementById("loginererrorMessage").innerText="user name or password is wrong"
       }
