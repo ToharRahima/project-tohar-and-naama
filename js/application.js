@@ -7,3 +7,35 @@
 //     let clon = template.content.cloneNode(true);
 //     document.getElementById("templatesContainer").appendChild(clon);
 // }
+
+const taskInput = document.getElementById("additem");
+console.log({ taskInput })
+const addTaskBtn = document.getElementById("addTaskButton");
+console.log({ addTaskBtn })
+
+
+function addtask(){
+    const task = taskInput.value;
+    console.log({ task })
+    if(task.length){
+        t
+        const fajaxtodoobj = new FAJAX()
+        fajaxtodoobj.open("POST","addToDo/api/ToDoList",task);
+        fajaxtodoobj.onload = function(){
+            loadPage(mainPageTemplate);
+        };
+        fajaxobj.send();    
+    }else{
+        alert("task can't be blank, write an input");
+    }
+} 
+
+addTaskBtn.addEventListener("click",addtask);
+
+
+
+function createToDoObj (task){
+    this.id
+    this.task = task
+}
+

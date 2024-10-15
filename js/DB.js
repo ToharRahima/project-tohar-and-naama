@@ -60,10 +60,7 @@ function verifyPassword(username, password){
     return passwordCongruence
 }
 
-function createToDoObj (task){
-    this.id
-    this.task = task
-}
+
 
 function addToDoItem( id, task){
     let db = JSON.parse(localStorage.getItem("db"));
