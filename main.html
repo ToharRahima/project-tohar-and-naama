@@ -9,45 +9,50 @@
     <link rel="stylesheet" href="./css/application.css">
 </head>
 <body>
-    <div id="templatesContainer">
     <template>
-<h1>login</h1>
-<form>
-<label for="username">user name:</label><br>
-<input type="text" id="username" name="username"><br>   
-<label for="password">password:</label><br>
-<input type="text" id="password" name="username"><br>   
-<input type="submit" id="loginsubmitbutton">
-<p id="loginererrorMessage"></p>
-<p id="goToRegister"> click here to register </p>
-</form>
+        <h1>login</h1>
+        <form>
+            <label for="username">user name:</label><br>
+            <input type="text" id="username" name="username"><br>   
+            <label for="password">password:</label><br>
+            <input type="text" id="password" name="username"><br>   
+            <input type="submit" id="loginsubmitbutton">
+            <p id="loginererrorMessage"></p>
+            <p id="goToRegister"> click here to register </p>
+        </form>
     </template>
+    
     <template>
-<h1>register</h1>
-<form id="registerForm">
-    <label for="newusername">user name:</label><br>
-    <input type="text" id="newusername" name="newusername"><br>   
-    <label for="newpassword">password:</label><br>
-    <input type="text" id="newpassword" name="newpassword"><br> 
-    <label for="confirmpassword">password:</label><br>
-    <input type="text" id="confirmpassword" name="confirmpassword"><br>   
-    <input type="submit" id="registersubmitbutton">
-    <p id="registererrorMessage"></p>
-  
+        <h1>register</h1>
+        <form id="registerForm">
+            <label for="newusername">user name:</label><br>
+            <input type="text" id="newusername" name="newusername"><br>   
+            <label for="newpassword">password:</label><br>
+            <input type="text" id="newpassword" name="newpassword"><br> 
+            <label for="confirmpassword">password:</label><br>
+            <input type="text" id="confirmpassword" name="confirmpassword"><br>   
+            <input type="submit" id="registersubmitbutton">
+            <p id="registererrorMessage"></p>
+        </form>
+        <script src="./js/register.js"></script>
+    </template>
 
-    </form>
-    </template>
     <template>
-<h1>application- to do list</h1>
+        <h1>application- to do list</h1>
+        <div id="appDiv">
+        </div>
+        <script src="./js/application.js"></script>
+
     </template>
-</div>
+
+    <div id="templatesContainer"></div>
+
     <script src="./js/FAJAX.js"></script>
+    <script src="./js/login.js"></script>
     <script src="./js/network.js"></script>
     <script src="./js/server.js"></script>
     <script src="./js/DB.js"></script>
     <script src="./js/application.js"></script>
-    <script src="./js/login.js"></script>
-    <script src="./js/register.js"></script>
 
 </body>
 </html>

@@ -18,8 +18,8 @@ class FAJAX {
     this.width = width;
 
 
-X = new FAJAX
+const X = new FAJAX()
 X.open(method (get, post, delete), url
 X.onload = function
-x.send( body-optional )
+x.send()
 */
