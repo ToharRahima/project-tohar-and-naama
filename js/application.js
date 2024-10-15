@@ -19,10 +19,10 @@ function addtask(){
     console.log({ task })
     if(task.length){
         const fajaxtodoobj = new FAJAX()
-        fajaxtodoobj.open("POST","addToDo/api/ToDoList",{username: id, task});
-        fajaxtodoobj.onload = function(){
-            addToDoItem( id, task);   
-            showAllToDoArray();}
+        fajaxtodoobj.open("POST","addToDo/api/ToDoList",{id, task});
+        fajaxtodoobj.onload = function(result){
+            //TODO:    add result to screen
+            }
         fajaxobj.send();    
     }else{
         alert("task can't be blank, write an input");

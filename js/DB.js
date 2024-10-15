@@ -94,10 +94,12 @@ function addToDoItem(id, task) {
         if (db.usersArray[i].id === id) {
 
             db.usersArray[i].toDoList.push(task)
-            break
+            localStorage.setItem("db", JSON.stringify(db));
+            return db.usersArray[i].toDoList;
         }
     }
-    localStorage.setItem("db", JSON.stringify(db));
+
+    return false;
 
 }
 

@@ -14,4 +14,7 @@ function server(package){
     if(url==="addUser/api/people"){
         return addPersonToDB (content);
     }
+    if(url==="addToDo/api/ToDoList"){
+        return addToDoItem(content.id, content.task);
+    }
 }
