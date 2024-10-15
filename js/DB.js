@@ -1,17 +1,17 @@
 const localStorageObj = {
-    usersArray: []
+    usersArray: [],
+    idCounter: 1
 }
 
-let idCounter = 1
 
 class Person {
-    constructor(username, password) {
+    constructor(username, password, id) {
+
         this.username = username;
         this.password = password;
         this.toDoList = [];
-        this.id = idCounter;
+        this.id = id;
 
-        idCounter++
     }
 } 
 
@@ -19,11 +19,12 @@ class Person {
 function setDB(){
     const db = localStorage.getItem("db");
     if (!db?.length) {
-        let dave = new Person("dave", 1234);
-
         localStorage.setItem("db", JSON.stringify(localStorageObj));
+        
+        let dave = new Person("dave", 1234);
         addPersonToDB(dave);
-        idCounter++
+
+
     }
 }
 setDB();
@@ -45,10 +46,10 @@ function add() { }
 // }
 
 function addPersonToDB(personObj) {
-    console.log('personObj: ', personObj);
     let db = JSON.parse(localStorage.getItem("db"));
     const newPerson = new Person(personObj.username, personObj.password)
-
+    newPerson.id = db.idCounter;
+    db.idCounter++
     db.usersArray.push(newPerson);
     localStorage.setItem("db", JSON.stringify(db));
     return newPerson.id
