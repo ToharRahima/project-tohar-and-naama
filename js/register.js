@@ -12,24 +12,28 @@ function preventDefaultsendtoUserValueToPerson(e) {
 };
 
 //takes input and create person
-function userValueToPerson(){
+function userValueToPerson() {
     const userNameValue = document.getElementById("newusername").value;
     const passwordValue = document.getElementById("newpassword").value;
     const secondPasswordValue = document.getElementById("confirmpassword").value;
-    if(passwordValue!==secondPasswordValue){
-        document.getElementById("registererrorMessage").innerText="passwords do not match";
-        document.getElementById("registererrorMessage").style.color= "red";
-    }else {
-        let person = {user:userNameValue,
-                    password:passwordValue}
-        console.log(person);
+    if (passwordValue !== secondPasswordValue) {
+        document.getElementById("registererrorMessage").innerText = "passwords do not match";
+        document.getElementById("registererrorMessage").style.color = "red";
+    } else {
+        let person = {
+            user: userNameValue,
+            password: passwordValue
+        }
         //SEND PERSON TO NETWORK
         const fajaxobj = new FAJAX()
-        fajaxobj.open("POST","addUser/api/people",person);
-        fajaxobj.onload = function(){
+
+        fajaxobj.open("POST", "addUser/api/people", person);
+        fajaxobj.onload = function (res) {
+            localStorage.setItem("currentId", res);
             loadPage(mainPageTemplate);
         };
-        fajaxobj.send();    
+        fajaxobj.send();
+        console.log('fajaxobj: ', fajaxobj);
     }
 }
-    
+

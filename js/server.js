@@ -1,4 +1,5 @@
 function server(package){
+    console.log('package: ', package);
 
     method = package.method
     url = package.url
@@ -17,8 +18,7 @@ function server(package){
     // }
 
     if(url==="addUser/api/people"){
-        addPersonToDB (content);
-        return true;
+        return addPersonToDB (content);
     }
 }
 

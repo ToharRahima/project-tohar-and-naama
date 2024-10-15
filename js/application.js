@@ -7,7 +7,7 @@
 //     let clon = template.content.cloneNode(true);
 //     document.getElementById("templatesContainer").appendChild(clon);
 // }
-
+const id = localStorage.getItem("currentId");
 const taskInput = document.getElementById("additem");
 console.log({ taskInput })
 const addTaskBtn = document.getElementById("addTaskButton");
@@ -18,12 +18,11 @@ function addtask(){
     const task = taskInput.value;
     console.log({ task })
     if(task.length){
-        t
         const fajaxtodoobj = new FAJAX()
-        fajaxtodoobj.open("POST","addToDo/api/ToDoList",task);
+        fajaxtodoobj.open("POST","addToDo/api/ToDoList",{username: id, task});
         fajaxtodoobj.onload = function(){
-            loadPage(mainPageTemplate);
-        };
+            addToDoItem( id, task);   
+            showAllToDoArray();}
         fajaxobj.send();    
     }else{
         alert("task can't be blank, write an input");

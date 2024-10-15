@@ -28,6 +28,8 @@ function addPersonToDB (personObj){
     let db = JSON.parse(localStorage.getItem("db"));
     db.usersArray.push(personObj);
     localStorage.setItem("db", JSON.stringify(db));
+    //TODO: return the id!
+    return personObj.username;
 }
 
 function checkIfUserExists(name){
@@ -77,7 +79,7 @@ function addToDoItem( id, task){
 
 function removeItemFromToDo(){}
 
-function showAllToDoArray(id){
+function showAllToDoArray(){
     let db = JSON.parse(localStorage.getItem("db"));
     let allToDoArray = db.toDoList
     localStorage.setItem("db", JSON.stringify(db));
