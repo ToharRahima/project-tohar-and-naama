@@ -17,4 +17,8 @@ function server(package){
     if(url==="addToDo/api/ToDoList"){
         return addToDoItem(content.id, content.task);
     }
+
+    if(url==="ourServer/api/getToDo"){
+        return showAllToDoArray(content)
+    }
 }
