@@ -1,19 +1,17 @@
-// const loginPageTemplate = document.getElementsByTagName("template")[0]
-// const registerPageTemplate = document.getElementsByTagName("template")[1]
-// const mainPageTemplate = document.getElementsByTagName("template")[2]
 
-// function loadPage(template){
-//     document.getElementById("templatesContainer").innerHTML="";
-//     let clon = template.content.cloneNode(true);
-//     document.getElementById("templatesContainer").appendChild(clon);
-// }
 const id = localStorage.getItem("currentId");
 const taskInput = document.getElementById("additem");
-console.log({ taskInput })
 const addTaskBtn = document.getElementById("addTaskButton");
-console.log({ addTaskBtn })
+const logOutButton = document.getElementById("logout");
+
+logOutButton.addEventListener("click", () => {
+    localStorage.removeItem("currentId")
+    location.reload();
+})
+
 
 function showTasks () {
+    console.log("in")
     xml = new FAJAX();
     xml.open("get", "ourServer/api/getToDo", id)
     xml.onload = function (toDoList){

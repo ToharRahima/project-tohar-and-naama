@@ -26,6 +26,9 @@ function loadPage(template){
 }
 loadPage(loginTemplate);
 
+document.getElementById("goToRegister").style.textDecoration = "underline"
+document.getElementById("goToRegister").style.color = "purple"
+
 //
 function processPassword(event){
   event.preventDefault();
@@ -45,8 +48,16 @@ function processPassword(event){
         document.getElementById("loginererrorMessage").innerText="user name or password is wrong"
       }
     }
+
+    if(!inputedUserNameV || !inputedPasswordV) {
+      return document.getElementById("loginererrorMessage").innerText="plz input text";}
+
    xml.send();
   }
+
+  const tryId = localStorage.getItem("currentId");
+
+  if(tryId) loadPage(mainPageTemplate);
 
   document.getElementById("loginsubmitbutton").addEventListener("click", processPassword);
   document.getElementById("goToRegister").addEventListener("click",  ()=>{

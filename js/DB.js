@@ -58,6 +58,8 @@ function addPersonToDB(personObj) {
 function checkIfUserExists(name, password) {
     let db = JSON.parse(localStorage.getItem("db"));
 
+    if(!name || !password) return false;
+
     for (let i = 0; i < db.usersArray.length; i++) {
         if (String(db.usersArray[i].username) === String(name) && verifyPassword( name ,password ))  {
 
