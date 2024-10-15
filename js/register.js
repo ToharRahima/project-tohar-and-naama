@@ -20,7 +20,7 @@ function userValueToPerson(){
         document.getElementById("registererrorMessage").innerText="passwords do not match";
         document.getElementById("registererrorMessage").style.color= "red";
     }else {
-        let person = {user:userNameValue,
+        let person = {username:userNameValue,
                     password:passwordValue}
         console.log(person);
         //SEND PERSON TO NETWORK

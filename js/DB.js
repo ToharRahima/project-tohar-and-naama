@@ -1,12 +1,32 @@
-/* to do
-    - add id generator to create person
-    -make one single person constructor(createPers + addPers in one function)
-*/
-
 const localStorageObj = {
     usersArray: []
 }
-localStorage.setItem("db", JSON.stringify(localStorageObj));
+
+let idCounter = 1
+
+class Person {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+        this.toDoList = [];
+        this.id = idCounter;
+
+        idCounter++
+    }
+} 
+
+
+function setDB(){
+    const db = localStorage.getItem("db");
+    if (!db?.length) {
+        let dave = new Person("dave", 1234);
+
+        localStorage.setItem("db", JSON.stringify(localStorageObj));
+        addPersonToDB(dave);
+        idCounter++
+    }
+}
+setDB();
 
 // function Person(username, password,) {
 //     this.username = username
@@ -25,29 +45,26 @@ function add() { }
 // }
 
 function addPersonToDB(personObj) {
+    console.log('personObj: ', personObj);
     let db = JSON.parse(localStorage.getItem("db"));
-    db.usersArray.push(personObj);
+    const newPerson = new Person(personObj.username, personObj.password)
+
+    db.usersArray.push(newPerson);
     localStorage.setItem("db", JSON.stringify(db));
+    return newPerson.id
 }
 
-function checkIfUserExists(name) {
+function checkIfUserExists(name, password) {
     let db = JSON.parse(localStorage.getItem("db"));
-    let userExists = false
 
     for (let i = 0; i < db.usersArray.length; i++) {
-        // console.log(i);
-        console.log('name: ', name);
-        // console.log('db.usersArray[0].username: ', db.usersArray[0].username)
-        if (String(db.usersArray[i].username) === String(name)) {
-            console.log('db.usersArray[i].username: ', db.usersArray[i].username)
-            console.log("user exists (i;m inside loop)", name)
-            userExists = true
-            break
+        if (String(db.usersArray[i].username) === String(name) && verifyPassword( name ,password ))  {
+
+           return  db.usersArray[i].id;
         }
     }
     localStorage.setItem("db", JSON.stringify(db));
-    console.log("does user exist?", userExists)
-    return userExists
+    return false;
 }
 
 function verifyPassword(username, password) {
@@ -64,10 +81,11 @@ function verifyPassword(username, password) {
     return passwordCongruence
 }
 
-function createToDoObj(task) {
-    this.id
-    this.task = task
-}
+// function createToDoObj(task) {
+//     this.id
+//     this.task = task
+// }
+
 
 function addToDoItem(id, task) {
     let db = JSON.parse(localStorage.getItem("db"));
@@ -91,24 +109,17 @@ function showAllToDoArray(id) {
     return allToDoArray
 }
 
-class Person {
-    constructor(username, password,) {
-        this.username = username
-        this.password = password
-        this.toDoList = []
-        this.tdid = 0
-    }
-}
+
 
 
 
 
 // dave is test
 //we have created a new person
-let dave = new Person("dave", 1234, 1);
+
 //the object with the array of all the people 
 
-addPersonToDB(dave);
+
 
 let davesTask = new createToDoObj("make Dinner");
 

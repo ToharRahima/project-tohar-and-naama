@@ -7,7 +7,6 @@ class FAJAX {
     send (){
         
         const res = network(this);
-        console.log('res: ', res);
         this.onload(res)
 
     }

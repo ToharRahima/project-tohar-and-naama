@@ -38,8 +38,8 @@ function processPassword(event){
     xml = new FAJAX();
     xml.open("post", "ourServer/api/login", nameAndPassword )
     xml.onload = function (result){
-      console.log("came back positive", result);
       if (result){
+        localStorage.setItem("currentId", result)
         loadPage(mainPageTemplate);
       } else{
         document.getElementById("loginererrorMessage").innerText="user name or password is wrong"
