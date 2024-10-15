@@ -13,6 +13,17 @@ console.log({ taskInput })
 const addTaskBtn = document.getElementById("addTaskButton");
 console.log({ addTaskBtn })
 
+userId
+function showTasks () {
+    xml = new FAJAX();
+    xml.open("get", "ourServer/api/getToDo", userId )
+    xml.onload = function (toDoList){
+      document.getElementById("TDlist").innerHTML = toDoList
+    }
+   xml.send();
+  }
+
+
 
 function addtask(){
     const task = taskInput.value;
