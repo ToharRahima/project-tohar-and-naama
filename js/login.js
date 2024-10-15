@@ -34,13 +34,13 @@ function processPassword(event){
                             password: inputedPasswordV
                           }
     xml = new FAJAX();
-    debugger
     xml.open("post", "ourServer/api/login", nameAndPassword )
-    xml.onload = function (){
-      console.log("do something before if");
-      if (/*the check from server was positive*/5 == 5){
-        document.getElementById("templatesContainer").innerHTML="";
-         showAppContent();
+    xml.onload = function (result){
+      console.log("came back positive", result);
+      if (result){
+        console.log(" whooooooo");
+        // document.getElementById("templatesContainer").innerHTML="";
+        //  showAppContent();
       } else{
         document.getElementById("loginererrorMessage").innerText="user name or password is wrong"
       }

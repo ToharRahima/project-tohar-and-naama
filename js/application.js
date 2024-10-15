@@ -12,4 +12,4 @@ function showappContent() {
     document.body.appendChild(clon);
   }
   
-showregisterContent();
+//showregisterContent();

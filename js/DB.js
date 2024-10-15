@@ -32,11 +32,14 @@ function addPersonToDB (personObj){
     localStorage.setItem("db", JSON.stringify(db));
 }
 
-function checkIfUserExists(username){
+function checkIfUserExists(name){
+    debugger
     let db = JSON.parse(localStorage.getItem("db"));
     let userExists = false
+    //console.log(db.usersArray[0].username); 
     for( let i = 0; i < db.usersArray.length; i++){
-        if (db.usersArray[i].username === username ){
+        if (toString(db.usersArray[i].username) === toString(name) ){
+            console.log("user exists");
             userExists = true
             break
         }
@@ -49,7 +52,7 @@ function verifyPassword(username, password){
     let db = JSON.parse(localStorage.getItem("db"));
     let passwordCongruence = false
     for( let i = 0; i < db.usersArray.length; i++){
-        if (db.usersArray[i].username === username &&  db.usersArray[i].password === password){
+        if (toString(db.usersArray[i].username) === toString(username) &&  toString(db.usersArray[i].password) === toString(password)){
         passwordCongruence = true
         console.log( "password correct");
         }
@@ -93,7 +96,7 @@ function showAllToDoArray(id){
 
 // dave is test
 //we have created a new person
-let dave = new Person(1, "Dave", 1234);
+let dave = new Person(1, "dave", 1234);
 //the object with the array of all the people 
 
 addPersonToDB(dave);

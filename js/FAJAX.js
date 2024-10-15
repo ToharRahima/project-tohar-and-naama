@@ -5,7 +5,11 @@ class FAJAX {
         this.content = content
     }
     send (){
-        network(this)
+        
+        const res = network(this);
+        console.log('res: ', res);
+        this.onload(res)
+
     }
   }
 
