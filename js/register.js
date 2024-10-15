@@ -16,14 +16,13 @@ function userValueToPerson() {
     const userNameValue = document.getElementById("newusername").value;
     const passwordValue = document.getElementById("newpassword").value;
     const secondPasswordValue = document.getElementById("confirmpassword").value;
-    if (passwordValue !== secondPasswordValue) {
-        document.getElementById("registererrorMessage").innerText = "passwords do not match";
-        document.getElementById("registererrorMessage").style.color = "red";
-    } else {
-        let person = {
-            user: userNameValue,
-            password: passwordValue
-        }
+    if(passwordValue!==secondPasswordValue){
+        document.getElementById("registererrorMessage").innerText="passwords do not match";
+        document.getElementById("registererrorMessage").style.color= "red";
+    }else {
+        let person = {username:userNameValue,
+                    password:passwordValue}
+        console.log(person);
         //SEND PERSON TO NETWORK
         const fajaxobj = new FAJAX()
 
