@@ -1,31 +1,33 @@
-function showLogin() {
-  let temp = document.getElementsByTagName("template")[0];
-  let clon = temp.content.cloneNode(true);
-  document.body.appendChild(clon);
+
+// function showLogin() {
+    //   let temp = document.getElementsByTagName("template")[0];
+    //   let clon = temp.content.cloneNode(true);
+    //   document.body.appendChild(clon);
+    // }
+    // showLogin();
+    // function showregisterContent() {
+    //   let temp = document.getElementsByTagName("template")[1];
+    //   let clon = temp.content.cloneNode(true);
+    //   document.body.appendChild(clon);
+    //   }
+    // function showAppContent() {
+    //   let temp = document.getElementsByTagName("template")[2];
+    //   let clon = temp.content.cloneNode(true);
+    //   document.body.appendChild(clon);
+    // }
+    let loginTemplate = document.getElementsByTagName("template")[0]
+    let registerPageTemplate = document.getElementsByTagName("template")[1]
+    let mainPageTemplate = document.getElementsByTagName("template")[2]
+    //load page by its template number
+function loadPage(template){
+    document.getElementById("templatesContainer").innerHTML="";
+    let clon = template.content.cloneNode(true);
+    document.getElementById("templatesContainer").appendChild(clon);
 }
-showLogin();
+loadPage(loginTemplate);
 
-
-// function showregisterContent() {
-//   let temp = document.getElementsByTagName("template")[1];
-//   let clon = temp.content.cloneNode(true);
-//   document.body.appendChild(clon);
-//   }
-  
-
-
-function showAppContent() {
-  let temp = document.getElementsByTagName("template")[2];
-  let clon = temp.content.cloneNode(true);
-  document.body.appendChild(clon);
-}
-
-
-
-
+//
 function processPassword(event){
-  console.log("i'm in the first func");
-  console.log("i'm in the first func");
   event.preventDefault();
   const inputedUserNameV = document.getElementById("username").value;
   const inputedPasswordV = document.getElementById("password").value;
@@ -38,24 +40,19 @@ function processPassword(event){
     xml.onload = function (result){
       console.log("came back positive", result);
       if (result){
+        loadPage(mainPageTemplate);
         console.log(" whooooooo");
         // document.getElementById("templatesContainer").innerHTML="";
         //  showAppContent();
       } else{
         document.getElementById("loginererrorMessage").innerText="user name or password is wrong"
       }
-
     }
-    
    xml.send();
-
-
   }
 
   document.getElementById("loginsubmitbutton").addEventListener("click", processPassword);
-    
-    
   document.getElementById("goToRegister").addEventListener("click",  ()=>{
-    document.getElementById("templatesContainer").innerHTML="";
-      // showregisterContent();
+    loadPage(registerPageTemplate);
+
    });

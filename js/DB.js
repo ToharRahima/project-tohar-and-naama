@@ -8,15 +8,13 @@ const localStorageObj = {
 }
 localStorage.setItem("db", JSON.stringify(localStorageObj));
 
-//create a person
-function Person(id, username, password,) {
-    this.id = id
-    this.username = username
-    this.password = password
-    this.toDoList = [ ]
-    this.tdid = 0 
-  }// id generator
-
+// function Person(username, password,) {
+//     this.username = username
+//     this.password = password
+//     this.toDoList = [ ]
+//     this.tdid = 0 
+//   }// id generator
+function add(){}
 
 // function getUserObject(name,id, password) {
 //     return {
@@ -89,7 +87,13 @@ function showAllToDoArray(id){
     return allToDoArray
 }
 
-
+class Person{
+    constructor(username, password,) {
+        this.username = username
+        this.password = password
+        this.toDoList = [ ]
+        this.tdid = 0
+    }}
 
 
 

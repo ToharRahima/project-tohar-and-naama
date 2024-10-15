@@ -16,7 +16,12 @@ function server(package){
     //     return ;
     // }
 
+    if(url==="addUser/api/people"){
+        addPersonToDB (content);
+        return true;
+    }
 }
+
 
 //constent.name is not defined!!!!!!!!
 
