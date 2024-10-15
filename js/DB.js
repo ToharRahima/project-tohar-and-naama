@@ -105,9 +105,14 @@ function removeItemFromToDo() { }
 
 function showAllToDoArray(id) {
     let db = JSON.parse(localStorage.getItem("db"));
-    let allToDoArray = db.toDoList
-    localStorage.setItem("db", JSON.stringify(db));
-    return allToDoArray
+    let allToDo
+    for (let i = 0; i < db.usersArray.length; i++) {
+        if (db.usersArray[i].id === id) {
+            console.log("hello from retrieval function");
+            allToDo = db.usersArray[i].toDoList;
+            return allToDo
+        }
+    }
 }
 
 

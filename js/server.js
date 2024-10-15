@@ -14,4 +14,8 @@ function server(package){
     if(url==="addUser/api/people"){
         return addPersonToDB (content);
     }
+
+    if(url==="ourServer/api/getToDo"){
+        return showAllToDoArray(content)
+    }
 }
