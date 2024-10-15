@@ -15,6 +15,7 @@ function server(package){
         return addPersonToDB (content);
     }
     if(url==="addToDo/api/ToDoList"){
+        console.log('content.id: ', content.id);
         return addToDoItem(content.id, content.task);
     }
 

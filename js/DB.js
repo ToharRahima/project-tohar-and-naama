@@ -91,7 +91,8 @@ function verifyPassword(username, password) {
 function addToDoItem(id, task) {
     let db = JSON.parse(localStorage.getItem("db"));
     for (let i = 0; i < db.usersArray.length; i++) {
-        if (db.usersArray[i].id === id) {
+        console.log('db.usersArray[i].id: ', db.usersArray[i].id);
+        if (db.usersArray[i].id.toString() === id.toString()) {
 
             db.usersArray[i].toDoList.push(task)
             localStorage.setItem("db", JSON.stringify(db));
@@ -107,14 +108,15 @@ function removeItemFromToDo() { }
 
 function showAllToDoArray(id) {
     let db = JSON.parse(localStorage.getItem("db"));
-    let allToDo
     for (let i = 0; i < db.usersArray.length; i++) {
-        if (db.usersArray[i].id === id) {
+        if (db.usersArray[i].id.toString() === id.toString()) {
             console.log("hello from retrieval function");
             allToDo = db.usersArray[i].toDoList;
             return allToDo
         }
     }
+
+    return false;
 }
 
 

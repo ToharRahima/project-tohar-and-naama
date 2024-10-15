@@ -17,10 +17,13 @@ function showTasks () {
     xml = new FAJAX();
     xml.open("get", "ourServer/api/getToDo", id)
     xml.onload = function (toDoList){
-      document.getElementById("TDlist").innerHTML = toDoList
+        if(!toDoList) return;
+      document.getElementById("TDlist").innerHTML = toDoList.join(", ")
     }
    xml.send();
   }
+
+  showTasks();
 
 
 
@@ -29,11 +32,13 @@ function addtask(){
     console.log({ task })
     if(task.length){
         const fajaxtodoobj = new FAJAX()
+        console.log('id: ', id);
         fajaxtodoobj.open("POST","addToDo/api/ToDoList",{id, task});
-        fajaxtodoobj.onload = function(result){
-            //TODO:    add result to screen
+        fajaxtodoobj.onload = function(toDoList){
+            if(!toDoList) return;
+            document.getElementById("TDlist").innerHTML = toDoList.join(", ")
             }
-        fajaxobj.send();    
+         fajaxtodoobj.send();    
     }else{
         alert("task can't be blank, write an input");
     }
